@@ -47,7 +47,7 @@ def predict_data():
     x1 = [product, forecast3, forecast6, forecast9, sales1, sales3, sales6, sales9, perf6, perf12]
     df1 = pd.DataFrame(data= [x1], columns = ['product', 'forecast3', 'forecast6', 'forecast9', 'sales1', 'sales3', 'sales6', 'sales9', 'perf6', 'perf12'])
     le = LabelEncoder()
-    df['product'] = le.fit_transform(df['product'])
+    df1['product'] = le.fit_transform(df1['product'])
     
     #df1['product'] = le.transform(df1['product'])
     x = df1.iloc[:, :10].values
