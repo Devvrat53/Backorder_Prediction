@@ -6,6 +6,8 @@ import numpy as np
 
 # Import dataset 
 df = pd.read_csv('data/cleaned_data.csv')
+print(df.head())
+
 
 # Label Encoding
 le = LabelEncoder()
@@ -44,7 +46,10 @@ def predict_data():
 
     x1 = [product, forecast3, forecast6, forecast9, sales1, sales3, sales6, sales9, perf6, perf12]
     df1 = pd.DataFrame(data= [x1], columns = ['product', 'forecast3', 'forecast6', 'forecast9', 'sales1', 'sales3', 'sales6', 'sales9', 'perf6', 'perf12'])
-    df1['product'] = le.transform(df1['product'])
+    le = LabelEncoder()
+    df['product'] = le.fit_transform(df['product'])
+    
+    #df1['product'] = le.transform(df1['product'])
     x = df1.iloc[:, :10].values
     ans = model.predict(x)
     output = ans
@@ -55,3 +60,4 @@ def predict_data():
     
 if __name__ == '__main__':
 	application.run(host="0.0.0.0")
+'''
